@@ -1,54 +1,43 @@
-# React + TypeScript + Vite
+# Bike Adventure Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple 2D game built with React and TypeScript where you can navigate around a map.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Dynamic map system with terrain and objects
+- Camera controls with zoom functionality
+- Minimap for easy navigation
+- Player movement with boundary constraints
 
-## Expanding the ESLint configuration
+## How to Play
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Use WASD keys to move around
+- Press + and - keys to zoom in and out
+- Press R to reset the game
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Development
+
+This project uses:
+- Vite
+- React
+- TypeScript
+
+### Getting Started
+
+```
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `src/game/` - Core game logic
+  - `config.ts` - Game configuration
+  - `types.ts` - TypeScript type definitions
+  - `map.ts` - Map generation and entity rendering
+  - `camera.ts` - Camera positioning and zoom
+  - `player.ts` - Player movement
+  - `minimap.ts` - Minimap rendering
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- `src/hooks/` - React hooks
+  - `useKeyboard.ts` - Keyboard input handling
